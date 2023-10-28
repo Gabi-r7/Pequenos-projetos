@@ -1,0 +1,25 @@
+/* Botão de volta ao topo */
+
+.meuBtn {
+    display: none; 
+    position: fixed;
+    bottom: 20px;
+    right: 30px; 
+    z-index: 99; 
+    border: none;
+    outline: none;
+    background-color: rgb(27, 145, 139);
+    color: white;
+    cursor: pointer; 
+    padding: 15px; 
+    border-radius: 50%;
+    width: 4rem;
+    height: 4rem;
+    font-size: 18px;
+    transition: .3s;
+  }
+  
+  .meuBtn:hover {
+    background-color: rgb(0, 255, 242);
+    color: black;
+  }

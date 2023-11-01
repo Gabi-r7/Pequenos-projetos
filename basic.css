@@ -1,145 +1,286 @@
 /*estrutura padrão*/
+*{
+  box-sizing: border-box;
+}
 
 html{
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    height: auto;
-    background-color: rgb(21, 22, 22);
-    }
-  
-  body {
-    margin: 0%;
-    overflow-x: hidden;
-    }
-  
-  header {
-    top: 0%;
-    width: 100%;
+font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+height: auto;
+background-color: rgb(21, 22, 22);
+}
+
+body {
+  margin: 0%;
+  overflow-x: hidden;
   }
+
+header {
+  top: 0%;
+  width: 100%;
+}
+
+/*  NAV   */
+
+nav {
+  background: rgb(43, 40, 40);
+  display: flex;
+  margin-bottom: -8px;
+  font-size: 1.5rem;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+}
+
+nav :is(ul, li) {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: inline-block;
+  border-radius: 15px;
+}
+
+nav ul li {
+  padding: .5em;
+  transition: .3s;
+  vertical-align: middle;
+}
+
+nav ul li:hover:not(.titulo) {
+  background-color: rgba(126, 209, 205, 0.377);
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+}
+
+nav a:active {
+  color: orange;
+}
   
-  /*  NAV   */
-  
+nav > ul > li {
+  position: relative;
+}
+
+nav ul li:has(ul)::after {
+  content: ">";
+  color: white;
+}
+
+nav > ul > li > ul {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: rgba(19, 49, 133, 0.74);
+  opacity: 0;
+  visibility: hidden;
+  transition: .3s;
+}
+
+nav > ul > li:hover > ul {
+  opacity: 1;
+  visibility: visible;
+}
+
+nav > ul > li > ul > li {
+  display: block;
+}
+
+/* Media query para telas menores */
+@media (max-width: 768px) {
+  *{
+    font-size: 14px;
+  }
   nav {
-    background: rgb(43, 40, 40);
-    display: flex;
-    margin-bottom: -8px;
-    font-size: 1.5rem;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.5rem;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0.5rem 0.5rem;
   }
-  
-  nav :is(ul, li) {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    display: inline-block;
-    border-radius: 15px;
-  }
-  
+
   nav ul li {
-    padding: .5em;
-    transition: .3s;
-    vertical-align: middle;
+    padding: 0.3em;
+    font-size: 1.2rem;
   }
-  
-  nav ul li:hover:not(.titulo) {
-    background-color: rgba(126, 209, 205, 0.377);
+
+  nav ul li:hover {
+    background-color: rgba(255, 255, 255, 0.384);
   }
-  
-  nav a {
-    color: white;
-    text-decoration: none;
-  }
-  
-  nav a:active {
-    color: orange;
-  }
-    
-  nav > ul > li {
-    position: relative;
-  }
-  
+
   nav ul li:has(ul)::after {
     content: ">";
-    color: white;
   }
-  
-  nav > ul > li > ul {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: rgba(19, 49, 133, 0.74);
-    opacity: 0;
-    visibility: hidden;
-    transition: .3s;
-  }
-  
+
   nav > ul > li:hover > ul {
     opacity: 1;
     visibility: visible;
+    background-color: rgba(6, 2, 54, 0.753);
   }
-  
-  nav > ul > li > ul > li {
-    display: block;
+  .container {
+    flex-direction: column;
+    place-items: center;
+    margin-bottom: 10%;
   }
-  
-  /* Media query para telas menores */
-  @media (max-width: 768px) {
-    *{
-      font-size: 14px;
-    }
-    nav {
-      flex-direction: column;
-      align-items: flex-start;
-      padding: 0.5rem 0.5rem;
-    }
-  
-    nav ul li {
-      padding: 0.3em;
-      font-size: 1.2rem;
-    }
-  
-    nav ul li:hover {
-      background-color: rgba(255, 255, 255, 0.384);
-    }
-  
-    nav ul li:has(ul)::after {
-      content: ">";
-    }
-  
-    nav > ul > li:hover > ul {
-      opacity: 1;
-      visibility: visible;
-      background-color: rgba(6, 2, 54, 0.753);
-    }
-    #leon, #nilce, #cadeachave, #coisadenerd, #republicacoisadenerd{
-      flex-direction: column;
-      place-items: center;
-      margin-bottom: 10%;
-    }
-  
-    h2{
-      margin-bottom: 5%;
-    }
-    }
-  
-  .titulo {
-    height: 8vw;
-    width: 24vw;
-    background-image: url('assests/logo\ colorida.png');
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    transition: .3s;
+
+  h2{
+    margin-bottom: 5%;
   }
+}
+/*
+.titulo {
+  height: 8vw;
+  width: 24vw;
+  background-image: url('assests/logo\ colorida.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: .3s;
+}
+
+.titulo:hover{
+  filter: grayscale(1) brightness(5);
+}*/
+
+
+.banner {
+  width: 100%;
+  height: auto;
+  margin-top: .5rem;
+  border-bottom: rgb(21, 22, 22) 5px solid;
+  border-top: rgb(21, 22, 22) 5px solid;
+}
+
+/*  MAIN  */
+
+.container{
+  flex-direction: column;
+  margin-top: 7%;
+  text-align: center;
   
-  .titulo:hover{
-    filter: grayscale(1) brightness(5);
+  background-color: rgb(43, 40, 40);
+  margin: 6vw;
+  border-radius: 15px;
+  padding: 3vw;
+  animation: bordaAnimada 6s linear infinite;
+  position: relative;
+  z-index: -1;
+}
+
+main>h1{
+  padding: 2vh;
+  margin: auto;
+  text-align: center;
+}
+/*
+h1, h2 {
+  text-align: center;
+  border-radius: 10px;
+  padding: 3px;
+  color: white;
+  width: fit-content;
+  animation: fundoAnimado 6s linear infinite;
+  filter: blur(1.5rem);
+}
+*/
+h1, h2 {
+  text-align: center;
+  border-radius: 10px;
+  position: relative;
+  font-size: 24px;
+  color: white; /* Cor do texto */
+  text-align: center;
+  padding: 20px;
+  width: fit-content;
+  padding: 2rem;
+}
+
+h1::before, h2::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: inherit;
+  filter: blur(10px); /* Ajuste o valor para controlar o nível de desfoque */
+  z-index: -1;
+  animation: fundoAnimado 6s linear infinite;
+}
+
+h2{
+  margin: auto;
+  padding: 2vh;
+  margin-bottom: 6vh;
+}
+
+@keyframes bordaAnimada {
+  0% {
+    box-shadow: 0 0 40px blue;
   }
-  .banner {
-    width: 100%;
-    height: auto;
-    margin-top: .5rem;
-    border-bottom: rgb(21, 22, 22) 5px solid;
-    border-top: rgb(21, 22, 22) 5px solid;
-  }  
+  25% {
+    box-shadow: 0 0 40px purple;
+  }
+  50% {
+    box-shadow: 0 0 40px green;
+  }
+  75% {
+    box-shadow: 0 0 40px red;
+  }
+  100% {
+    box-shadow: 0 0 40px blue;
+  }
+}
+
+@keyframes fundoAnimado {
+  0% {
+    background-color:  blue;
+  }
+  25% {
+    background-color: purple;
+  }
+  50% {
+    background-color: green;
+  }
+  75% {
+    background-color: red;
+  }
+  100% {
+    background-color: blue;
+  }
+}
+
+#title-container{
+  justify-content: space-between;
+  display: flex;
+  padding: 2vw;
+}
+
+p{
+  color: white;
+  margin: 1rem;
+  font-size: medium;
+}
+
+/* -------------------EXEMPLO DE COMO EU TINHA FEITO------------------------ */
+
+/* FOTOS */
+
+/*
+.imagens{
+  display: flex;
+  place-items: center;
+  max-width: max-content;
+  margin: 1.5vw;
+}
+
+.foto-leon, .foto-nilce, .foto-cadeachave, .foto-coisadenerd, .foto-republicacoisadenerd{
+  height: 200px;
+  width: 200px;
+  border-radius: 15px;
+  background-size: cover;
+  background-position: center;
+}
+
+.foto-leon{
+  background-image: url('assests/Leon.jpg');
+}
+*/
